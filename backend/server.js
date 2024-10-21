@@ -20,7 +20,12 @@ connection.once('open', () => {
 });
 
 const restaurantsRouter = require('./routes/restaurants');
+const authRouter = require('./routes/auth');
+const bookingsRouter = require('./routes/bookings');
+
 app.use('/api/restaurants', restaurantsRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/bookings', bookingsRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);

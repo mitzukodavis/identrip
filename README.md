@@ -2,43 +2,59 @@
 
 IdenTrip es una plataforma descentralizada que utiliza tecnología blockchain para combatir locales turísticos falsos y reseñas fraudulentas en América Latina, con un enfoque inicial en Cusco, Perú. Integra NFTs para la verificación de identidad digital e incentivos tokenizados con STX para fomentar la confianza, transparencia y turismo sostenible.
 
-## Estructura del Proyecto
-
-El proyecto está dividido en dos partes principales:
-
-1. Frontend (React)
-2. Backend (Node.js, Express, MongoDB)
-
-### Archivos Principales
-
-- `frontend/src/components/RestaurantList.js`: Componente principal de React que muestra la lista de restaurantes y permite agregar nuevos.
-- `backend/models/restaurant.model.js`: Modelo de MongoDB para los restaurantes.
-- `backend/contracts/identrip-nft.clar`: Contrato inteligente en Clarity para la gestión de NFTs y recompensas.
-- `backend/services/stacksService.js`: Servicio para interactuar con la blockchain de Stacks.
-- `backend/routes/restaurants.js`: Rutas de Express para manejar las operaciones CRUD de restaurantes.
-
 ## Características Principales
 
 1. Verificación de Identidad con NFTs:
    - Los negocios son verificados y reciben NFTs únicos que garantizan su autenticidad.
 
 2. Incentivos Tokenizados:
-   - Los usuarios ganan tokens STX por reseñas verificadas.
+   - Los usuarios ganan tokens STX por reseñas verificadas y reservas.
    - Descuentos del 5% en reservas pagadas con STX.
 
 3. Transparencia Respaldada por Blockchain:
-   - Todas las transacciones y reseñas se almacenan de forma segura en la blockchain.
+   - Todas las transacciones, reseñas y reservas se almacenan de forma segura en la blockchain.
 
 4. Fomento del Turismo Sostenible:
    - Promueve prácticas comerciales justas y refuerza la confianza en el ecosistema turístico.
 
-## Requisitos Previos
+5. Sistema de Autenticación de Usuarios:
+   - Registro y login seguros para usuarios y negocios.
+
+6. Reservas en Línea:
+   - Sistema integrado de reservas con confirmación mediante NFTs.
+
+7. Panel de Administración:
+   - Para la verificación de negocios y gestión de la plataforma.
+
+8. Búsqueda y Filtrado Avanzado:
+   - Permite a los usuarios encontrar fácilmente lo que buscan.
+
+9. Soporte Multilingüe:
+   - Interfaz disponible en varios idiomas para mayor accesibilidad.
+
+10. Sistema de Notificaciones:
+    - Mantiene a los usuarios informados sobre sus reservas, recompensas y actualizaciones.
+
+11. Estadísticas y Análisis:
+    - Proporciona insights valiosos sobre el turismo en la región.
+
+## Tecnologías Utilizadas
+
+- Frontend: React, Redux
+- Backend: Node.js, Express
+- Base de Datos: MongoDB
+- Blockchain: Stacks (STX) para contratos inteligentes y NFTs
+- Almacenamiento Descentralizado: Internet Computer (ICP) para gestión de datos y detección de fraudes
+- Autenticación: JWT
+- Internacionalización: react-i18next
+
+## Configuración y Ejecución
+
+### Requisitos Previos
 
 - Node.js (v14 o superior)
 - MongoDB
 - Cuenta en Stacks Testnet
-
-## Configuración y Ejecución
 
 ### Pasos para Ejecutar el Proyecto
 
@@ -54,7 +70,7 @@ El proyecto está dividido en dos partes principales:
    npm install
    cp .env.example .env
    ```
-   Edita el archivo `.env` con tus credenciales de MongoDB y Stacks.
+   Edita el archivo `.env` con tus credenciales de MongoDB, Stacks y otras configuraciones necesarias.
 
 3. Configurar el frontend:
    ```
@@ -62,7 +78,7 @@ El proyecto está dividido en dos partes principales:
    npm install
    cp .env.example .env
    ```
-   Edita el archivo `.env` con la URL de tu API backend.
+   Edita el archivo `.env` con la URL de tu API backend y otras configuraciones necesarias.
 
 4. Iniciar el backend:
    ```
@@ -89,18 +105,11 @@ El proyecto está dividido en dos partes principales:
 
 ## Uso de la Plataforma
 
-- La página principal muestra listas de restaurantes, agencias de viajes y atracciones turísticas verificadas en Cusco.
-- Los usuarios pueden agregar nuevos negocios turísticos, que recibirán un NFT único al ser verificados.
-- Los turistas pueden dejar reseñas verificadas, respaldadas por fotos con datos GPS.
-- Las reservas realizadas con STX reciben un descuento del 5%.
-
-## Datos del Mercado Turístico de Perú
-
-- 23,8 millones de visitantes registrados en establecimientos de hospedaje durante los primeros cinco meses de 2024.
-- 63,9% de las visitas se concentran en Lima, seguido de Cusco y Callao.
-- 43 proyectos de inversión valorados en $1.936 millones identificados en 2024.
-- Proyección de aumento del 11,5% en inversión extranjera directa.
-- 28,456 establecimientos hoteleros en operación.
+- Regístrate o inicia sesión en la plataforma.
+- Explora restaurantes, agencias de viajes y atracciones turísticas verificadas en Cusco.
+- Realiza reservas y obtén NFTs como confirmación.
+- Deja reseñas verificadas y gana tokens STX como recompensa.
+- Utiliza tus tokens STX para obtener descuentos en futuras reservas.
 
 ## Contribuciones
 

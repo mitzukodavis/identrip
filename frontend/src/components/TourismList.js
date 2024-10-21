@@ -103,6 +103,20 @@ function TourismList() {
     }
   };
 
+  const handleBooking = async (itemId, itemType) => {
+    try {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/bookings/book`, {
+        itemId,
+        itemType,
+        userId: 'user123', // Esto debería venir de un sistema de autenticación
+      });
+      alert('Reserva realizada con éxito');
+      fetchData();
+    } catch (error) {
+      console.error('Error al realizar la reserva:', error);
+    }
+  };
+
   const renderCommonFields = () => (
     <>
       <input name="name" value={newItem.name} onChange={handleInputChange} placeholder="Nombre" required />
@@ -174,6 +188,7 @@ function TourismList() {
             <p>Puntuación de Sostenibilidad: {restaurant.sustainabilityScore}/100</p>
             <p>Total de Reservas: {restaurant.totalBookings}</p>
             <p>Reservas con STX: {restaurant.stxBookings}</p>
+            <button onClick={() => handleBooking(restaurant._id, 'restaurant')}>Reservar</button>
           </li>
         ))}
       </ul>
@@ -191,6 +206,7 @@ function TourismList() {
             <p>Cerca de: {agency.nearLandmark}</p>
             <p>NFT Token ID: {agency.nftTokenId || 'Pendiente'}</p>
             <p>Puntuación de Sostenibilidad: {agency.sustainabilityScore}/100</p>
+            <button onClick={() => handleBooking(agency._id, 'travelAgency')}>Reservar</button>
           </li>
         ))}
       </ul>
@@ -210,6 +226,7 @@ function TourismList() {
             <p>Cerca de: {attraction.nearLandmark}</p>
             <p>NFT Token ID: {attraction.nftTokenId || 'Pendiente'}</p>
             <p>Puntuación de Sostenibilidad: {attraction.sustainabilityScore}/100</p>
+            <button onClick={() => handleBooking(attraction._id, 'touristAttraction')}>Reservar</button>
           </li>
         ))}
       </ul>
