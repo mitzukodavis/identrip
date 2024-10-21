@@ -1,0 +1,56 @@
+cd proyecto-restaurantes/frontend
+npm install
+echo "REACT_APP_API_URL=http://localhost:5000" > .env
+npm start
+
+cd ../backend
+npm init -y
+npm install express mongoose cors dotenv
+
+cd proyecto-restaurantes/backend
+npm install
+echo "MONGODB_URI=mongodb://localhost:27017/cusco_restaurants" > .env
+node seedRestaurants.js
+npm start
+
+cd backend
+npm install @stacks/transactions @stacks/network
+heroku create cusco-restaurants-api
+git init
+git add .
+git commit -m "Initial commit for Heroku deployment"
+git push heroku master
+
+# Configura las variables de entorno en Heroku
+heroku config:set MONGODB_URI=tu_url_de_mongodb_atlas
+
+# Ejecuta el seeder en Heroku (opcional, si quieres poblar la base de datos)
+heroku run node seedRestaurants.js
+
+# Abre la aplicación en el navegador
+heroku open
+
+cd frontend
+
+# Construye la aplicación React
+npm run build
+
+# Despliega en Netlify
+netlify deploy
+
+# Cuando se te solicite, elige estas opciones:
+# - Create & configure a new site
+# - Team: tu equipo (o crea uno nuevo)
+# - Site name: cusco-restaurants-app (o el nombre que prefieras)
+# - Publish directory: build
+
+# Si todo está bien, haz el despliegue en producción
+netlify deploy --prod
+
+cd proyecto-restaurantes
+git init
+git add .
+git commit -m "Initial commit for IdenTrip project"
+git remote add origin https://github.com/tu-usuario/identrip.git
+git branch -M main
+git push -u origin main
